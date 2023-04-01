@@ -32,7 +32,7 @@
         }
     }
     
-    .my-animation span {
+    .my-animation .jedan {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -41,13 +41,13 @@
         
     }
     
-    .my-animation span:nth-child(1) {
+    .my-animation .jedan:nth-child(1) {
         filter: blur(25px);
     }
-    .my-animation span:nth-child(2) {
+    .my-animation .jedan:nth-child(2) {
         filter: blur(5px);
     } 
-    .my-animation span:nth-child(3) {
+    .my-animation .jedan:nth-child(3) {
         filter: blur(50px);
     } 
     
@@ -58,19 +58,63 @@
         bottom: 20px;
         content:"";
         position: absolute;
-        background: #050210;
+        background:#050210;
+        display: flex;
         border-radius:100%;
-
+        
     }
+    .pulse{
+        z-index: 999;
+        display: block;
+        align-self: center;
+        justify-self: center;
+      
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        
 
+        cursor: pointer;
+        position: absolute;
+       
+    }
+    .pulse::after{
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid #140b2e;
+        background:#281a5f63;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        animation: pulse 1s ease 0s infinite;
+    }
+    @keyframes pulse{
+        0% {
+            opacity: 1;
+            transform: scale(1);
+
+        }
+        80% {
+            opacity: 0.5;
+            transform: scale(2);
+
+        }
+        100% {
+            opacity: 0;
+            transform:scale(3);
+        }
+    }
     </style>
 </head>
 <body>
   <div class="my-animation">
-    <span></span>
-    <span></span>
-    <span></span>
-    
-  </div>  
+    <span class="jedan"></span>
+    <span class="jedan"></span>
+    <span class="jedan"></span>
+  </div> 
+  <span class="pulse"></span>
 </body>
 </html>
